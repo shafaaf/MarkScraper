@@ -1,24 +1,38 @@
 def main():
+    from bs4 import BeautifulSoup
+
+    # Extracting recent transcripts
     with open('recentTranscripts.html') as f: 
     	rawHTML = f.read()
     #print rawHTML
 
-    # Extracting transcripts
-    from bs4 import BeautifulSoup
     html_doc = rawHTML
-
     global soup
     soup = BeautifulSoup(html_doc, 'html.parser')
 
     #print "=== pretty version is: \n"
     #print(soup.prettify())
+
+    # Extracting all transcripts
+    with open('allTranscripts.html') as f: 
+        rawHTML = f.read()
+    #print rawHTML
+
+    html_doc = rawHTML
+    global soup2
+    soup2 = BeautifulSoup(html_doc, 'html.parser')
+
+    # Parse recent transcripts
     parseRecentTranscripts("status0")
     parseRecentTranscripts("status1")
 
+    # Parse all transcripts
+    parseAllTranscripts()
+    
 #---------------------------------------------------------------------------------------------
 
 def parseRecentTranscripts(status):
-    print "\nparseRecentTranscripts called"
+    print "\n===parseRecentTranscripts called"
     # For a semester of recent year transcripts
     tbodyStatus = soup.find("tbody", {"id": status})
 
@@ -32,7 +46,7 @@ def parseRecentTranscripts(status):
     trTagsListLength = len(trTags)
     #print "trTagsListLength is: {}".format(trTagsListLength)
 
-    print "===Going through one by one each course (tr tag)\n"
+    print "Going through one by one for each course (tr tag)\n"
     for i, trTag in enumerate(trTags):
     	# Skip over these tr tags as not needed
         if (i == 0) or (i == trTagsListLength -2):
@@ -80,9 +94,14 @@ def parseRecentTranscripts(status):
         print courseString
 
 #---------------------------------------------------------------------------------------------
-    #def parseAllTranscripts(status):
 
+def parseAllTranscripts():
+    print "\n\n===parseAllTranscripts called\n"
+    courseDivs = soup2.findAll("div", { "class" : "courses blok" })
+    #print "courseDivs is: \n{}".format(courseDivs)
 
+    for course in courseDivs:
+        print course.text
 
 #---------------------------------------------------------------------------------------------
 
