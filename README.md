@@ -1,0 +1,1 @@
+Get marks from Python script.
