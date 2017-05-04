@@ -3,7 +3,7 @@
 Get marks from Python script.
 
 ## How to use:
-```./login.py```<br/>
+```python login.py```<br/>
 
 ## Resources:
 
