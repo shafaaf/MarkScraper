@@ -3,8 +3,8 @@ from requests import session
 
 # Set these as needed for account
 values = {
-	'personId': '998891515',
-	'pin': '921222',
+	'personId': 'xxx',
+	'pin': 'xxx',
 	'verify.dispatch' : '1'
 }
 
