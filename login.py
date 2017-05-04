@@ -1,10 +1,10 @@
 import requests
 from requests import session
 
-
+# Set these as needed for account
 values = {
-	'personId': 'xxx',
-	'pin': 'xxx',
+	'personId': '998891515',
+	'pin': '921222',
 	'verify.dispatch' : '1'
 }
 
