@@ -1,4 +1,4 @@
-def main():
+def parse():
     from bs4 import BeautifulSoup
 
     # Extracting recent transcripts
@@ -107,4 +107,4 @@ def parseAllTranscripts():
 
 # To start up program, using: python parse.py
 if __name__ == "__main__":
-   main()
+   parse()
