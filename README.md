@@ -1,6 +1,6 @@
 # Mark Scraper
 
-Get marks from Python script.
+Get marks from grading portal.
 
 ## How to use:
 Set personid as student number, and pin in login.py.  Then run command: <br/>``` python login.py ```
