@@ -3,6 +3,7 @@
 Get marks from Python script.
 
 ## How to use:
+Set personid as student number, and pin in login.py
 ```python login.py```<br/>
 
 ## Resources:
